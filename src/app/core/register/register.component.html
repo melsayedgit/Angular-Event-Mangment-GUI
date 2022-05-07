@@ -1,1 +1,21 @@
-<p>register works!</p>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+  
+    
+      <div class="fadeIn first">
+        <img src="assets/img/iti-logo.png" id="icon" alt="User Icon" />
+      </div>
+  
+  
+      <form  (submit)="submit()">
+        <input formControlName ="username" type="text"  class="fadeIn second" name="username" placeholder="login">
+        <input  formControlName ="password" type="password" class="fadeIn third" name="password" placeholder="password">
+        <input  formControlName ="email" type="email" class="fadeIn fourth" name="email" placeholder="e-mail">
+        <input type="button"  class="fadeIn fourth " value="Registr">
+      </form>
+  
+
+
+    </div>
+  </div>    
