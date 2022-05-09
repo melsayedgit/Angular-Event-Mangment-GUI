@@ -7,12 +7,25 @@
         <img src="assets/img/iti-logo.png" id="icon" alt="User Icon" />
       </div>
   
-  
-      <form  (submit)="submit()">
+      <p-selectButton (ngModelChange)="updateGUI()" [options]="roles"
+       [(ngModel)]="selectedRole" optionLabel="label" optionValue="value"></p-selectButton>
+
+      <form  [formGroup]="form" (submit)="submit()">
         <input formControlName ="username" type="text"  class="fadeIn second" name="username" placeholder="login">
         <input  formControlName ="password" type="password" class="fadeIn third" name="password" placeholder="password">
         <input  formControlName ="email" type="email" class="fadeIn fourth" name="email" placeholder="e-mail">
-        <input type="button"  class="fadeIn fourth " value="Registr">
+    <br>
+    <div formGroupName="address" #address style = "display:none" >
+
+      <span  class=" sub-text"> Address </span> <br>
+      <input  formControlName ="city" type="text" class=" sub-text fadeIn first " name="city" placeholder="city">
+      <input  formControlName ="street"  type="text" class="sub-text fadeIn first " name="street" placeholder="street">
+      <input  formControlName ="building"   type="text" class="sub-text fadeIn first " name="building" placeholder="building">
+    </div>
+      <br>
+
+        <input type="submit"  class="fadeIn fourth " value="Registr">
+        
       </form>
   
 

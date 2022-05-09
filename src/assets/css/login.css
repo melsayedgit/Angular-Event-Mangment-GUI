@@ -136,7 +136,7 @@ html {
     border-radius: 5px 5px 5px 5px;
   }
   
-  input[type=text] :focus,input[type=password] :focus,input[type=email]:focus {
+  input[type=text]:focus,input[type=password]:focus,input[type=email]:focus {
     background-color: #fff;
     border-bottom: 2px solid rgb(219, 46, 81);
   }
@@ -261,3 +261,12 @@ html {
     width:60%;
   }
   
+  input.sub-text {
+    width: 40%;
+ margin-left: 10px;
+    }
+
+    span.sub-text {
+color: brown;
+margin-top: 20px;
+      }
