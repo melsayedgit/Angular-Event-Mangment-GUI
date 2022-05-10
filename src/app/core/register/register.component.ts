@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient} from "@angular/common/http";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ url ="http://localhost:9090/api/";
 
   constructor( 
     private fb:FormBuilder,
-    private http:HttpClient
+    private http:HttpClient,
+    private router:Router
     ) {
 
 
@@ -43,10 +45,16 @@ submit(){
   if (this.selectedRole = "student") {
     this.http.post(this.url+"student/register",this.form.getRawValue())
     .subscribe(res=>{
-      console.log(res);
+      this.router.navigateByUrl("/login")
     })
-  } else {
-
+  }
+   else {
+    console.log(this.form.getRawValue())
+    this.http.post(this.url+"speaker/register",this.form.getRawValue())
+    .subscribe(res=>{
+      
+      this.router.navigateByUrl("/login")
+    })
   }
 }
 updateGUI(){

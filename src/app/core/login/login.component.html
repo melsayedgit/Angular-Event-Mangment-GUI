@@ -9,9 +9,9 @@
   
       <!-- Login Form -->
       <form id="login">
-        <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
-        <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-        <input type="button"  class="fadeIn fourth " value="Log In">
+        <input [(ngModel)]="username" type="text" id="login" class="fadeIn second" name="username" placeholder="login">
+        <input [(ngModel)]="password"  type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+        <input (click)="login()" type="button"  class="fadeIn fourth " value="Log In">
       </form>
      
       <input  routerLink="/register" type="button" class="fadeIn fourth " value="Register">
