@@ -10,6 +10,10 @@ import { AuthService } from './auth.service';
 import { CoreModule } from './core/core.module';
 import {TableModule} from 'primeng/table';
 import { AdminService } from './services/admin.service';
+import { ButtonModule } from 'primeng/button';
+import {ConfirmPopupModule} from 'primeng/confirmpopup';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -23,7 +27,12 @@ import { AdminService } from './services/admin.service';
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
-    TableModule
+    TableModule,
+    ButtonModule,
+    ConfirmPopupModule,
+    BrowserAnimationsModule
+    
+    
    
   ],
   providers: [AuthService,AdminService],
