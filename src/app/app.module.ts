@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DialogModule} from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './jwt.interceptor';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -30,13 +31,7 @@ import { JwtInterceptor } from './jwt.interceptor';
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
-    TableModule,
-    ButtonModule,
-    ConfirmPopupModule,
-    BrowserAnimationsModule,
-    DialogModule,
-    FormsModule
-    
+    AdminModule
     
    
   ],

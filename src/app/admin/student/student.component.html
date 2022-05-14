@@ -1,0 +1,58 @@
+
+
+    <!-- student table -->
+    <p-table class="subtable" [value]="students"
+    [(selection)]="selectedStudent" 
+    [rows]="10" [paginator]="true" 
+    [rowHover]="true" dataKey="_id"
+    >
+
+        <ng-template  pTemplate="header">
+           
+            <tr>
+                <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th >ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Operation</th>
+          
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-student>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="student"></p-tableCheckbox>
+                </td>
+                <td>{{student._id}}</td>
+                <td>{{student.username}}</td>
+                <td>{{student.email}}</td>
+                <td>
+                    <p-confirmPopup></p-confirmPopup>
+                    <button pButton (click) ="deleteStudent($event,student._id)" pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button>
+                    <button pButton (click)="editStudent(student)" pRipple type="button" icon="pi pi-user-edit" class="p-button-rounded p-button-success p-button-text"></button>
+                </td>
+    
+            </tr>
+        </ng-template>
+    </p-table>
+    <div *ngFor="let st of selectedStudent"> name: {{st.username}} </div>
+
+    <!-- dialog -->
+    <p-dialog [(visible)]="studentDialog" [style]="{width: '450px'}" header="Student Details" [modal]="true" styleClass="p-fluid">
+        <ng-template pTemplate="content">
+        
+            <div class="field">
+                <label for="name">UserName</label>
+                <input type="text" pInputText id="id" [(ngModel)]="student.email" required autofocus />
+                <small class="p-error" *ngIf="studentSubmitted && !student?.email">Name is required.</small>
+            </div>
+            <div class="field">
+                <label for="name">UserName</label>
+                <input type="text" pInputText id="Email" [(ngModel)]="student.email" required autofocus />
+                <small class="p-error" *ngIf="studentSubmitted && !student?.email">Name is required.</small>
+            </div>
+        </ng-template> 
+    </p-dialog>
+
