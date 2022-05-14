@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,8 +9,10 @@ export class AuthService {
  url ="http://localhost:9090/api/";
   constructor(private http:HttpClient) { }
   Login(username:string,password:string){
-  return this.http.post(this.url+"login",{username:username,password:password})
-  
+this.http.post<any>(this.url+"login",{username:username,password:password}).subscribe(res=>{
+localStorage.setItem("jwt_token",res.token)
 
+})
+  
   }
 }

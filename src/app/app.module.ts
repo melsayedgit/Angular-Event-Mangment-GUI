@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +15,7 @@ import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DialogModule} from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
+import { JwtInterceptor } from './jwt.interceptor';
 
 
 
@@ -39,7 +40,14 @@ import { FormsModule } from '@angular/forms';
     
    
   ],
-  providers: [AuthService,AdminService],
+  providers: [AuthService,AdminService,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:JwtInterceptor,
+      multi:true
+    }
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,9 +14,8 @@ password:string = "";
   ngOnInit(): void {
   }
 login(){
-  this.auth.Login(this.username,this.password).subscribe(res=>{
-    
-  })
+  this.auth.Login(this.username,this.password);
+
 
 }
 }
