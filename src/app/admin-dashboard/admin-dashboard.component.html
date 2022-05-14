@@ -31,7 +31,7 @@
                 <td>
                     <p-confirmPopup></p-confirmPopup>
                     <button pButton (click) ="deleteStudent($event,student._id)" pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button>
-                    <button pButton ((click))="editStudent()" pRipple type="button" icon="pi pi-user-edit" class="p-button-rounded p-button-success p-button-text"></button>
+                    <button pButton ((click))="editStudent(student)" pRipple type="button" icon="pi pi-user-edit" class="p-button-rounded p-button-success p-button-text"></button>
                 </td>
     
             </tr>
@@ -39,7 +39,22 @@
     </p-table>
     <div *ngFor="let st of selectedStudent"> name: {{st.username}} </div>
 
-    <!-- student table -->
+    <!-- dialog -->
+    <p-dialog [(visible)]="studentDialog" [style]="{width: '450px'}" header="Student Details" [modal]="true" styleClass="p-fluid">
+        <ng-template pTemplate="content">
+        
+            <div class="field">
+                <label for="name">UserName</label>
+                <input type="text" pInputText id="name" [(ngModel)]="student.username" required autofocus />
+                <small class="p-error" *ngIf="studentSubmitted && !student?.username">Name is required.</small>
+            </div>
+        </ng-template> 
+    </p-dialog>
+
+
+
+
+    <!-- Speaker table -->
     <p-table class="subtable" [value]="students"
     [(selection)]="selectedStudent" 
     [rows]="10" [paginator]="true" 
@@ -73,3 +88,4 @@
     <div *ngFor="let st of selectedStudent"> name: {{st.username}} </div>
 
 </div>
+

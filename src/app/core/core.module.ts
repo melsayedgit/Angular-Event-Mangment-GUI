@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
    
   ],
   exports:[
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent,
+   NavbarComponent
   ],
   providers:[]
   

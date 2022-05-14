@@ -11,10 +11,16 @@ import {ConfirmationService, MessageService} from 'primeng/api';
 export class AdminDashboardComponent implements OnInit {
   students:Student[]=[];
   selectedStudent:Student[]=[];
+  studentDialog :boolean = false;
+  student:Student = {_id:0,username:"new",email:"new@website.com"};
+  studentSubmitted = false; 
+
   constructor(private admin :AdminService,
   private confirmationService:ConfirmationService,
   private messageService:MessageService
-  ) { }
+  ) { 
+  
+  }
 
   ngOnInit(): void {
     this.admin.getallStudents().subscribe(students=>this.students = students)
@@ -39,7 +45,12 @@ export class AdminDashboardComponent implements OnInit {
   });
   }
 
-  editStudent(){
-
+  editStudent(student:Student){
+    this.student = {...student};
+    this.studentDialog = true;
   }
+  hideDialog() {
+    this.studentDialog = false;
+    this.studentSubmitted = false;
+}
 }

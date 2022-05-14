@@ -13,6 +13,8 @@ import { AdminService } from './services/admin.service';
 import { ButtonModule } from 'primeng/button';
 import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DialogModule} from 'primeng/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -30,7 +32,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     TableModule,
     ButtonModule,
     ConfirmPopupModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DialogModule,
+    FormsModule
     
     
    
