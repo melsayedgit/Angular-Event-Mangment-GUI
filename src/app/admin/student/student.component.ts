@@ -29,7 +29,7 @@ export class StudentComponent implements OnInit {
   deleteStudent(event:Event,id:number){
     this.confirmationService.confirm({
       target: <EventTarget>event.target,
-      message: `Are you Sure you want to Delete Student`,
+      message: `Are you Sure you want to Delete The Student`,
       icon: 'pi pi-exclamation-triangle',
       acceptButtonStyleClass:"acceptdelete",
     

@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { SpeakerComponent } from './speaker/speaker.component';
 
 
 
 @NgModule({
   declarations: [
-    StudentComponent
+    StudentComponent,
+    SpeakerComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { TableModule } from 'primeng/table';
     TableModule,
   ],
   exports:[
-    StudentComponent
+    StudentComponent,
+    SpeakerComponent
   ]
   
 })
