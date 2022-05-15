@@ -15,6 +15,8 @@ export class StudentComponent implements OnInit {
   studentDialog :boolean = false;
   student:Student = {_id:0,username:"new",email:"new@website.com"};
   studentSubmitted = false; 
+  oldId:number=0;
+
   constructor(private admin :AdminService,
     private confirmationService:ConfirmationService,
     private messageService:MessageService) { }
@@ -44,11 +46,22 @@ export class StudentComponent implements OnInit {
 
   editStudent(student:Student){
     this.student = {...student};
+    this.oldId= this.student._id; 
     this.studentDialog = true;
   }
   hideDialog() {
     this.studentDialog = false;
     this.studentSubmitted = false;
+}
+postEditedStudent(){
+  this.studentSubmitted = true;
+  this.admin.editStudent(this.oldId,this.student.email)
+  .subscribe({
+    complete:()=>{
+      this.admin.getallStudents().subscribe(students=>this.students = students)
+    }
+  })
+this.studentDialog = false;
 }
 
 }

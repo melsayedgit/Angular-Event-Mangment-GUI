@@ -43,16 +43,26 @@
     <p-dialog [(visible)]="studentDialog" [style]="{width: '450px'}" header="Student Details" [modal]="true" styleClass="p-fluid">
         <ng-template pTemplate="content">
         
+            <!-- <div class="field">
+                <label for="name">ID </label>
+                <input type="text" pInputText id="id" [(ngModel)]="student._id" required autofocus />
+                <small class="p-error" *ngIf="studentSubmitted && !student?._id">Id is required.</small>
+            </div> -->
             <div class="field">
-                <label for="name">UserName</label>
-                <input type="text" pInputText id="id" [(ngModel)]="student.email" required autofocus />
-                <small class="p-error" *ngIf="studentSubmitted && !student?.email">Name is required.</small>
-            </div>
-            <div class="field">
-                <label for="name">UserName</label>
+                <label for="name">Email </label>
                 <input type="text" pInputText id="Email" [(ngModel)]="student.email" required autofocus />
-                <small class="p-error" *ngIf="studentSubmitted && !student?.email">Name is required.</small>
+                <small class="p-error" *ngIf="studentSubmitted && !student?.email">Email is required.</small>
             </div>
+
         </ng-template> 
+
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="postEditedStudent()"></button>
+        </ng-template>
+    
+
+
     </p-dialog>
+
 

@@ -18,7 +18,8 @@ studentUri:string ="http://localhost:9090/api/student/"
   removeStudent(id:number){
     this.http.delete(this.studentUri+id).subscribe();
   }
-  editStudent(){
+  editStudent(id:number,newEmail:string){
+    return this.http.put(this.studentUri+id,{email:newEmail})
 
   }
 }
