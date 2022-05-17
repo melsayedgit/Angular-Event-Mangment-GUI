@@ -9,6 +9,7 @@ import { AdminService } from '../../services/admin.service';
   styleUrls: ['./student.component.css'],
   providers:[ConfirmationService,MessageService]
 })
+
 export class StudentComponent implements OnInit {
   students:Student[]=[];
   selectedStudent:Student[]=[];

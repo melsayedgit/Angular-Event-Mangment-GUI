@@ -42,7 +42,7 @@ this.form = this.fb.group( {
 
 submit(){
   
-  if (this.selectedRole = "student") {
+  if (this.selectedRole == "student") {
     this.http.post(this.url+"student/register",this.form.getRawValue())
     .subscribe(res=>{
       this.router.navigateByUrl("/login")
@@ -50,16 +50,22 @@ submit(){
   }
    else {
     console.log(this.form.getRawValue())
+    
     this.http.post(this.url+"speaker/register",this.form.getRawValue())
     .subscribe(res=>{
       
-      this.router.navigateByUrl("/login")
+      
+      //this.router.navigateByUrl("/login")
+      
+      
     })
   }
 }
 updateGUI(){
+  
 if (this.selectedRole!="student") 
-{
+{ 
+
   this.addressDiv.nativeElement.style = "display:none" 
   
 

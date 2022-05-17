@@ -9,12 +9,14 @@ import { AdminService } from '../../services/admin.service';
   styleUrls: ['./speaker.component.css'],
   providers:[ConfirmationService,MessageService]
 })
+
+
 export class SpeakerComponent implements OnInit {
 
   speakers:Speaker[]=[];
   selectedSpeaker:Speaker[]=[];
   speakerDialog :boolean = false;
-  speaker:Speaker = {_id:0,username:"new",email:"new@website.com" };
+  speaker:Speaker = {_id:0,username:"new",email:"new@website.com", address:{city:"city",street:"street",building:"building"} };
   speakerSubmitted = false; 
   oldId:number=0;
   constructor(private admin :AdminService,
@@ -28,7 +30,7 @@ export class SpeakerComponent implements OnInit {
     })
   }
 
-  deleteSpeaker(event:Event,id:number){
+  deleteSpeaker(event:Event,username:string){
     this.confirmationService.confirm({
       target: <EventTarget>event.target,
       message: `Are you Sure you want to Delete The Speaker`,
@@ -36,7 +38,10 @@ export class SpeakerComponent implements OnInit {
       acceptButtonStyleClass:"acceptdelete",
     
       accept: () => {
-          this.admin.removeSpeaker(id);
+       console.log(username);
+       
+        
+          this.admin.removeSpeaker(username);
           this.admin.getallSpeakers().subscribe(speakers=>this.speakers = speakers)
       },
       reject: () => {
@@ -57,7 +62,7 @@ export class SpeakerComponent implements OnInit {
 }
 postEditedSpeaker(){
   this.speakerSubmitted = true;
-  this.admin.editSpeaker(this.oldId,this.speaker.email,this.speaker.address)
+  this.admin.editSpeaker(this.speaker.username,this.speaker)
   .subscribe({
     complete:()=>{
       this.admin.getallSpeakers().subscribe(speakers=>this.speakers = speakers)

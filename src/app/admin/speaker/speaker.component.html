@@ -16,9 +16,8 @@
                 <th >ID</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>City</th>
+                <th>Address</th>
                 <th>Operation</th>
-          
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-speaker>
@@ -26,19 +25,22 @@
                 <td>
                     <p-tableCheckbox [value]="speaker"></p-tableCheckbox>
                 </td>
+                
                 <td>{{speaker._id}}</td>
                 <td>{{speaker.username}}</td>
                 <td>{{speaker.email}}</td>
-                <td>{{speaker.address.city}}</td>
+                <td>{{speaker.address.city}},{{speaker.address.street}},{{speaker.address.building}} </td>
                 <td>
                     <p-confirmPopup></p-confirmPopup>
-                    <button pButton (click) ="deleteSpeaker($event,speaker._id)" pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button>
+                    
+                    <button pButton (click) ="deleteSpeaker($event,speaker.username)" pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button>
                     <button pButton (click)="editSpeaker(speaker)" pRipple type="button" icon="pi pi-user-edit" class="p-button-rounded p-button-success p-button-text"></button>
                 </td>
     
             </tr>
         </ng-template>
     </p-table>
+    
     <!-- <div *ngFor="let st of selectedSpeaker"> name: {{st.username}} </div> -->
 
     <!-- dialog -->
@@ -55,6 +57,21 @@
                 <input type="text" pInputText id="Email" [(ngModel)]="speaker.email" required autofocus />
                 <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">Email is required.</small>
             </div>
+            <div class="field">
+                <label for="name">City </label>
+                <input type="text" pInputText id="Email" [(ngModel)]="speaker.address.city" required autofocus />
+                <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">Email is required.</small>
+            </div>
+            <div class="field">
+                <label for="name">Street </label>
+                <input type="text" pInputText id="Email" [(ngModel)]="speaker.address.street" required autofocus />
+                <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">Email is required.</small>
+            </div>
+            <div class="field">
+                <label for="name">Building </label>
+                <input type="text" pInputText id="Email" [(ngModel)]="speaker.address.building" required autofocus />
+                <small class="p-error" *ngIf="speakerSubmitted && !speaker?.email">Email is required.</small>
+            </div>
 
         </ng-template> 
 
@@ -66,5 +83,7 @@
 
 
     </p-dialog>
+
+    
 
 

@@ -10,6 +10,7 @@ import { Student } from '../Model/Student';
 export class AdminService {
 studentUri:string ="http://localhost:9090/api/student/"
 SpeakerUri:string ="http://localhost:9090/api/speaker/"
+
   constructor(private http:HttpClient) { }
   getallStudents(){
    
@@ -26,14 +27,14 @@ SpeakerUri:string ="http://localhost:9090/api/speaker/"
 //speaker
 getallSpeakers(){
    
-  return this.http.get<Speaker[]>(this.studentUri)
+  return this.http.get<Speaker[]>(this.SpeakerUri)
   }
   
-  removeSpeaker(id:number){
-    this.http.delete(this.SpeakerUri+id).subscribe();
+  removeSpeaker(username:string){
+    this.http.delete(this.SpeakerUri+username).subscribe();
   }
-  editSpeaker(id:number,newEmail:string,address:any){
-    return this.http.put(this.SpeakerUri+id,{email:newEmail,address:address})
+  editSpeaker(username:string,sp:any){
+    return this.http.put(this.SpeakerUri+username,sp)
 
   }
 
