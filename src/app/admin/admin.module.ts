@@ -8,13 +8,15 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { SpeakerComponent } from './speaker/speaker.component';
+import { EventComponent } from './event/event.component';
 
 
 
 @NgModule({
   declarations: [
     StudentComponent,
-    SpeakerComponent
+    SpeakerComponent,
+    EventComponent
   ],
   imports: [
     CommonModule,
