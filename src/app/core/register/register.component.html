@@ -7,7 +7,7 @@
         <img src="assets/img/iti-logo.png" id="icon" alt="User Icon" />
       </div>
   
-      <p-selectButton (ngModelChange)="updateGUI()" [options]="roles"
+      <p-selectButton  (ngModelChange)="updateGUI()" [options]="roles"
        [(ngModel)]="selectedRole" optionLabel="label" optionValue="value"></p-selectButton>
 
       <form  [formGroup]="form" (submit)="submit()">

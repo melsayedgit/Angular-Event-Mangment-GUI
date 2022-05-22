@@ -1,1 +1,20 @@
-<p>event works!</p>
+<h2>Events</h2>
+<form [formGroup]="form" (submit)="submit()">
+    <span class="p-float-label">
+        <input formControlName ="title"  id="float-input" type="text" pInputText> 
+        <label for="float-input">Title</label>
+    </span>
+ 
+    <div class="field col-12 md:col-4">
+        <p-calendar  id="float-cal" formControlName ="date" inputId="basic" placeholder="Date" ></p-calendar> 
+    </div>
+ 
+    <label >Main Speaker:</label>
+    <p-dropdown formControlName ="mainSpeaker" [options]="Speakers" [(ngModel)]="mainSpeaker" optionLabel="username"></p-dropdown>
+    <br>
+    <p-multiSelect formControlName ="otherSpeakers" [options]="Speakers" [(ngModel)]="otherSpeakers" defaultLabel="Select otherSpeakers" optionLabel="username" display="chip"></p-multiSelect>
+    <br>
+    <p-multiSelect formControlName ="students" [options]="students" [(ngModel)]="selectedStudent" defaultLabel="Students" optionLabel="username" display="chip"></p-multiSelect>
+<br>
+    <button pButton pRipple type="submit" label="Create" class="p-button-rounded p-button-success"></button>
+</form>
