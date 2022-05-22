@@ -18,3 +18,25 @@
 <br>
     <button pButton pRipple type="submit" label="Create" class="p-button-rounded p-button-success"></button>
 </form>
+
+<div class="events">
+    <p-card *ngFor="let eve of events">
+        <ng-template pTemplate="header">
+         <h2>{{eve.title}}</h2> 
+        </ng-template>
+       Date:{{eve.eventDate}}
+       <br>
+       <label for="mainspeaker">MainSpeaker: </label>
+       <p-chip styleClass="main-speaker" label="{{eve.mainSpeaker.username}}"></p-chip>
+       <br>
+       <label for="mainspeaker">SubSpeakers: </label>
+       <p-chip *ngFor="let subspk of eve.otherSpeakers" styleClass="sub-speakers" label="{{subspk.username}}"></p-chip>
+       <br>
+       <label for="mainspeaker">Students: </label>
+       <p-chip *ngFor="let st of eve.students" styleClass="students" label="{{st.username}}"></p-chip>
+
+        <ng-template pTemplate="footer">
+            Footer content here
+        </ng-template>
+    </p-card>
+</div>

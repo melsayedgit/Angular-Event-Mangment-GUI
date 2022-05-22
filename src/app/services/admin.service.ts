@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
+import { Event as itiEvent } from '../Model/Event';
 import { Speaker } from '../Model/Speaker';
 import { Student } from '../Model/Student';
 
@@ -8,9 +9,9 @@ import { Student } from '../Model/Student';
   providedIn: 'root'
 })
 export class AdminService {
-studentUri:string ="http://localhost:9090/api/student/"
-SpeakerUri:string ="http://localhost:9090/api/speaker/"
-
+studentUri:string ="http://localhost:9090/api/student/";
+SpeakerUri:string ="http://localhost:9090/api/speaker/";
+EventUri:string ="http://localhost:9090/api/event/"
   constructor(private http:HttpClient) { }
   getallStudents(){
    
@@ -38,6 +39,19 @@ getallSpeakers(){
 
   }
 
-
+  CreateEvent(formdata:any){
+ let event = {
+    ...formdata,
+    mainSpeaker:formdata.mainSpeaker._id,
+    otherSpeakers:formdata.otherSpeakers.map((sp:any)=>sp._id),
+    students:formdata.students.map((sd:any)=>sd._id)
+ } 
+ console.log(event)
+  this.http.post(this.EventUri+"create",event).subscribe();
+  }
+  getallEvents(){
+   
+    return this.http.get<itiEvent[]>(this.EventUri)
+    }
 }
 

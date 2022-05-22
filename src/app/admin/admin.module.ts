@@ -13,6 +13,9 @@ import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {DropdownModule} from 'primeng/dropdown';
+import {CardModule} from 'primeng/card';
+import { ChipModule } from 'primeng/chip';
+
 
 
 
@@ -34,7 +37,9 @@ import {DropdownModule} from 'primeng/dropdown';
     ReactiveFormsModule,
     CalendarModule,
     DropdownModule,
-    MultiSelectModule
+    MultiSelectModule,
+    CardModule,
+    ChipModule,
   ],
   exports:[
     StudentComponent,
