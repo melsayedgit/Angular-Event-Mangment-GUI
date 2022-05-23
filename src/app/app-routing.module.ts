@@ -4,11 +4,14 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 
 import { LoginComponent } from './core/login/login.component';
 import { RegisterComponent } from './core/register/register.component';
+import { ErrorComponent } from './error/error.component';
+import { LoginGuard } from './login.guard';
 
 const routes: Routes = [
   {path:"login",component: LoginComponent},
   {path:"register",component: RegisterComponent},
-  {path:"admin",component:AdminDashboardComponent},
+  {path:"admin",component:AdminDashboardComponent,canActivate:[LoginGuard]},
+  {path:"error",component:ErrorComponent},
   
 // { path: '**', component: RegisterComponent }
 ];

@@ -10,7 +10,9 @@ export class AuthService {
   isloggedin = false;
   username = "";
   url = "http://localhost:9090/api/";
-  constructor(private http: HttpClient,private router:Router) { }
+  constructor(private http: HttpClient,private router:Router) {
+
+   }
 
   Login(username: string, password: string) {
     this.http.post<any>(this.url + "login", { username: username, password: password }).subscribe(res => {
@@ -18,11 +20,12 @@ export class AuthService {
       this.username = username
       this.isloggedin = true;
       this.router.navigateByUrl("/")
+      this.role= res.role;
     })
   }
 logout(){
   this.isloggedin = false;
-  localStorage.setItem("jwt_token","")
+  localStorage.removeItem("jwt_token")
   this.username =""
 }
 

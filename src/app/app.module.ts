@@ -17,13 +17,15 @@ import {DialogModule} from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { JwtInterceptor } from './jwt.interceptor';
 import { AdminModule } from './admin/admin.module';
+import { ErrorComponent } from './error/error.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-  AdminDashboardComponent
+  AdminDashboardComponent,
+  ErrorComponent
 
   ],
   imports: [

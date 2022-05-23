@@ -33,7 +33,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   exports:[
     RegisterComponent,
     LoginComponent,
-   NavbarComponent
+    NavbarComponent
   ],
   providers:[]
   
