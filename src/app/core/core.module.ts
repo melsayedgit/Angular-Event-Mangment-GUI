@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -17,7 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
