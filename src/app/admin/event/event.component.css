@@ -4,6 +4,7 @@ background: #000;
 }
 .events{
     display: flex;
+   
 }
 :host ::ng-deep .p-chip.main-speaker {
     background: brown;
@@ -18,4 +19,8 @@ background: #000;
 :host ::ng-deep .p-chip.students {
     background:rgb(43, 147, 83);
     color: var(--primary-color-text);
+}
+
+.container{
+
 }

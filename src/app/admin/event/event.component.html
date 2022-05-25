@@ -1,3 +1,4 @@
+<div class="container">
 <h2>Events</h2>
 <form [formGroup]="form" (submit)="submit()">
     <span class="p-float-label">
@@ -20,7 +21,7 @@
 </form>
 
 <div class="events">
-    <p-card *ngFor="let eve of events">
+    <p-card *ngFor="let eve of events" >
         <ng-template pTemplate="header">
          <h2>{{eve.title}}</h2> 
         </ng-template>
@@ -34,9 +35,46 @@
        <br>
        <label for="mainspeaker">Students: </label>
        <p-chip *ngFor="let st of eve.students" styleClass="students" label="{{st.username}}"></p-chip>
-
+     
         <ng-template pTemplate="footer">
-            Footer content here
+            <p-confirmPopup></p-confirmPopup>
+            <button pButton (click) ="deleteitiEvent($event,eve._id)" pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-text"></button>
+            <button pButton (click)="edititiEvent(eve)" pRipple type="button" icon="pi pi-user-edit" class="p-button-rounded p-button-success p-button-text"></button>
         </ng-template>
     </p-card>
+</div>
+
+
+<p-dialog [(visible)]="eventDialog" [style]="{width: '450px'}" header="Event Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+    
+        <span class="p-float-label">
+            <input    id="float-input" type="text" pInputText> 
+            <label for="float-input">Title</label>
+        </span>
+     
+        <div class="field col-12 md:col-4">
+            <p-calendar  id="float-cal"  inputId="basic" placeholder="Date" ></p-calendar> 
+        </div>
+     
+        <label >Main Speaker:</label>
+        <p-dropdown [options]="Speakers" [(ngModel)]="event.mainSpeaker" optionLabel="username"></p-dropdown>
+        <br>
+        <p-multiSelect  [options]="Speakers" [(ngModel)]="event.otherSpeakers" defaultLabel="Select otherSpeakers" optionLabel="username" display="chip"></p-multiSelect>
+        <br>
+        <p-multiSelect  [options]="students" [(ngModel)]="event.students" defaultLabel="Students" optionLabel="username" display="chip"></p-multiSelect>
+    <br>
+        <button pButton pRipple type="submit" label="Create" class="p-button-rounded p-button-success"></button>
+
+    </ng-template> 
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="postEditeditiEvent()"></button>
+    </ng-template>
+
+
+
+</p-dialog>
+
 </div>

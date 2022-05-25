@@ -53,5 +53,14 @@ getallSpeakers(){
    
     return this.http.get<itiEvent[]>(this.EventUri)
     }
+
+    removeitiEvent(id :number){
+      this.http.delete(this.EventUri+id).subscribe();
+    }
+
+    edititiEvent(id:number,eve:any){
+      return this.http.put(this.SpeakerUri+id,eve)
+  
+    }
 }
 
