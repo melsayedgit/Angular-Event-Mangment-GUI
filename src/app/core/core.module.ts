@@ -8,6 +8,8 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -27,8 +29,9 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     ReactiveFormsModule,
     SelectButtonModule,
-    HttpClientModule
-
+    HttpClientModule,
+    DialogModule,
+    ButtonModule,
 
    
   ],

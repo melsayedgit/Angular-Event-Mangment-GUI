@@ -55,7 +55,7 @@ submit(){
     .subscribe(res=>{
       
       
-      //this.router.navigateByUrl("/login")
+      this.router.navigateByUrl("/login")
       
       
     })

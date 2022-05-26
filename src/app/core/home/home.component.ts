@@ -12,6 +12,9 @@ import { Student } from 'src/app/Model/Student';
 export class HomeComponent implements OnInit {
  speaker!:Speaker;
  student!:Student;
+ speakerDialog :boolean = false;
+ speakerSubmitted = false; 
+
   constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
@@ -26,4 +29,21 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  editSpeaker(){
+    this.speakerDialog = true;
+  }
+  hideDialog() {
+    this.speakerDialog = false;
+    this.speakerSubmitted = false;
+}
+postEditedSpeaker(){
+  this.speakerSubmitted = true;
+  this.auth.speakrOwnProfEdit(this.speaker)
+  .subscribe({
+    complete:()=>{
+     
+    }
+  })
+this.speakerDialog = false;
+}
 }

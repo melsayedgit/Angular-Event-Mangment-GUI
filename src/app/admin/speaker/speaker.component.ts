@@ -16,7 +16,7 @@ export class SpeakerComponent implements OnInit {
   speakers:Speaker[]=[];
   selectedSpeaker:Speaker[]=[];
   speakerDialog :boolean = false;
-  speaker:Speaker = {_id:0,username:"new",email:"new@website.com", address:{city:"city",street:"street",building:"building"} };
+  speaker:Speaker = {_id:0,username:"new",email:"new@website.com",password:"" ,address:{city:"city",street:"street",building:"building"} };
   speakerSubmitted = false; 
   oldId:number=0;
   constructor(private admin :AdminService,

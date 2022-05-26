@@ -13,7 +13,7 @@ import {ConfirmationService, MessageService} from 'primeng/api';
 })
 export class EventComponent implements OnInit {
   public form:FormGroup;
-  public mainSpeaker:Speaker = {_id:0,username:"new",email:"new@website.com", address:{city:"city",street:"street",building:"building"} };
+  public mainSpeaker:Speaker = {_id:0,username:"new",email:"new@website.com",password:"password", address:{city:"city",street:"street",building:"building"} };
   public Speakers:Speaker[] =[];
   public otherSpeakers:Speaker[] =[];
   public students:Student[]=[];
