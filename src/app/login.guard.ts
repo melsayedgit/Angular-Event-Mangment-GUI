@@ -15,7 +15,7 @@ export class LoginGuard implements CanActivate {
     state: RouterStateSnapshot,
     ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-if (this.auth.isloggedin) return true
+if (this.auth.role == "admin") return true
 else { this.router.navigateByUrl("/error"); return false}
   }
   

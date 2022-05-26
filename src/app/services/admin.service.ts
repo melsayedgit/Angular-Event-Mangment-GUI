@@ -47,7 +47,7 @@ getallSpeakers(){
     students:formdata.students.map((sd:any)=>sd._id)
  } 
  console.log(event)
-  this.http.post(this.EventUri+"create",event).subscribe();
+  return this.http.post(this.EventUri+"create",event)
   }
   getallEvents(){
    
@@ -55,7 +55,7 @@ getallSpeakers(){
     }
 
     removeitiEvent(id :number){
-      this.http.delete(this.EventUri+id).subscribe();
+    return  this.http.delete(this.EventUri+id);
     }
 
     edititiEvent(id:number,eve:any){

@@ -56,12 +56,12 @@ export class EventComponent implements OnInit {
   }
 
   submit(){
-  this.admin.CreateEvent(this.form.getRawValue())
-  this.admin.getallEvents().subscribe(eves=>{
-    this.events=eves;
-    this.changeDetection.markForCheck()
+  this.admin.CreateEvent(this.form.getRawValue()).subscribe(()=>{
+    this.admin.getallEvents().subscribe(eves=>{
+      this.events=eves;
+    });
+  })
 
-  });
   }
 
   deleteitiEvent(event:Event,id:number){
@@ -75,12 +75,12 @@ export class EventComponent implements OnInit {
 
 
 
-        this.admin.removeitiEvent(id);
-        this.admin.getallEvents().subscribe(eves => {
-          this.events = eves;
-          this.changeDetection.markForCheck()
+        this.admin.removeitiEvent(id).subscribe(()=>{
+          this.admin.getallEvents().subscribe(eves => {
+            this.events = eves;
+          });
+        })
 
-        });
       },
       reject: () => {
         this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
@@ -107,7 +107,7 @@ postEditeditiEvent(){
     complete:()=>{
       this.admin.getallEvents().subscribe(eves => {
         this.events = eves;
-        this.changeDetection.markForCheck()
+       
 
       });
     }
