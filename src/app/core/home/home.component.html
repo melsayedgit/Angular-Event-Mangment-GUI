@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div class="welcome">
+    <img src="assets/img/welcome.png" alt="" srcset="">
+    
+    <h2>  {{this.auth.username}}</h2>
+    <h3> {{this.auth.role}} </h3>
+    <div *ngIf="this.auth.role == 'speaker'" class="info">
+    <h3>Your Info is</h3>
+    <span>Id:{{speaker._id}}</span> <br>
+    <span>email:{{speaker.email}}</span><br>
+    <span>address:{{speaker.address.city}},{{speaker.address.street}} {{speaker.address.building}}</span> <br>
+    </div>
+</div>

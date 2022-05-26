@@ -1,6 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Speaker } from './Model/Speaker';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class AuthService {
   isloggedin = false;
   username = "";
   url = "http://localhost:9090/api/";
+
   constructor(private http: HttpClient,private router:Router) {
 
    }
@@ -28,5 +30,8 @@ logout(){
   localStorage.removeItem("jwt_token")
   this.username =""
 }
-
+ speakrOwnProfInof (){
+  return this.http.get<Speaker>(this.url+"Speaker/getownprofile")
+  
+ }
 }
